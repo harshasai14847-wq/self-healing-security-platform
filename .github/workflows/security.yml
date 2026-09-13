@@ -21,7 +21,7 @@ jobs:
           docker build -t self-healing-app:ci .
 
       - name: Trivy vulnerability scan
-        uses: aquasecurity/trivy-action@v0.34.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: self-healing-app:ci
           format: table
@@ -30,7 +30,7 @@ jobs:
           exit-code: 1
 
       - name: Generate SBOM
-        uses: aquasecurity/trivy-action@v0.34.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: self-healing-app:ci
           format: cyclonedx
