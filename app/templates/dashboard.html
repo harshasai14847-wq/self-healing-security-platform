@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Self-Healing Security Center</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b1220;
+            color: white;
+        }
+
+        header {
+            padding: 30px 50px;
+            background: #111827;
+            border-bottom: 1px solid #263244;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        header p {
+            color: #9ca3af;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .section {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            color: #cbd5e1;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            border-radius: 8px;
+            border: 1px solid #374151;
+            background: #0b1220;
+            color: white;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 13px 22px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .status {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .card-title {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .number {
+            font-size: 38px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .critical {
+            color: #ef4444;
+        }
+
+        .high {
+            color: #f97316;
+        }
+
+        .medium {
+            color: #eab308;
+        }
+
+        .low {
+            color: #22c55e;
+        }
+
+        .item {
+            padding: 14px 0;
+            border-bottom: 1px solid #263244;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .pass {
+            color: #22c55e;
+        }
+
+        .info {
+            color: #9ca3af;
+        }
+
+        @media (max-width: 800px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛡️ Self-Healing Security Center</h1>
+    <p>Automated vulnerability detection, remediation and recovery</p>
+</header>
+
+<div class="container">
+
+    <!-- ADD APPLICATION -->
+    <div class="section">
+
+        <h2>➕ Add Application</h2>
+
+        <p class="info">
+            Add a Dockerized application to the self-healing security system.
+        </p>
+
+        <form method="POST" action="/add-application">
+
+            <label>Application Name</label>
+
+            <input
+                type="text"
+                name="app_name"
+                placeholder="Example: My Web Application"
+                required
+            >
+
+            <label>Docker Image</label>
+
+            <input
+                type="text"
+                name="docker_image"
+                placeholder="Example: nginx:latest"
+                required
+            >
+
+            <button type="submit">
+                🔍 Scan & Protect Application
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- APPLICATION STATUS -->
+    <div class="section">
+
+        <h2>Application Status</h2>
+
+        <p class="status">● SYSTEM ONLINE</p>
+
+        <p>Security Monitor: <span class="pass">ACTIVE</span></p>
+
+        <p>Deployment Mode: <b>Blue-Green</b></p>
+
+    </div>
+
+    <!-- VULNERABILITY COUNTS -->
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-title">CRITICAL</div>
+            <div class="number critical">{{ critical }}</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">HIGH</div>
+            <div class="number high">{{ high }}</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">MEDIUM</div>
+            <div class="number medium">{{ medium }}</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">LOW</div>
+            <div class="number low">{{ low }}</div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- SECURITY CONTROLS -->
+    <div class="section">
+
+        <h2>🔐 Security Controls</h2>
+
+        <div class="item">
+            <span class="pass">✓</span>
+            Trivy Vulnerability Scanner — ACTIVE
+        </div>
+
+        <div class="item">
+            <span class="pass">✓</span>
+            CISA KEV Monitoring — ACTIVE
+        </div>
+
+        <div class="item">
+            <span class="pass">✓</span>
+            SBOM Generation — ACTIVE
+        </div>
+
+        <div class="item">
+            <span class="pass">✓</span>
+            Automatic Remediation — ACTIVE
+        </div>
+
+        <div class="item">
+            <span class="pass">✓</span>
+            Health Monitoring — ACTIVE
+        </div>
+
+    </div>
+
+    <!-- PIPELINE -->
+    <div class="section">
+
+        <h2>🔄 Self-Healing Pipeline</h2>
+
+        <div class="item">1️⃣ Vulnerability Detection</div>
+        <div class="item">2️⃣ CISA KEV Prioritization</div>
+        <div class="item">3️⃣ Automatic Remediation</div>
+        <div class="item">4️⃣ Docker Image Rebuild</div>
+        <div class="item">5️⃣ Security Rescan</div>
+        <div class="item">6️⃣ Security Verification</div>
+        <div class="item">7️⃣ Health Testing</div>
+        <div class="item">8️⃣ Blue-Green Deployment</div>
+        <div class="item">9️⃣ Automatic Rollback</div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
