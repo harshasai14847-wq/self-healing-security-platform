@@ -1,6 +1,9 @@
 FROM python:3.12-slim
 
 WORKDIR /app
+# Automatically remediate fixable pip vulnerabilities
+RUN python -m pip install --no-cache-dir --upgrade pip
+
 
 COPY app/requirements.txt .
 
