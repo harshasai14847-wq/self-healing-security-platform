@@ -1,7 +1,12 @@
+import sys
 import subprocess
+import sys
 import json
+import sys
 import os
+import sys
 import time
+import sys
 import urllib.request
 
 OLD_IMAGE = "self-healing-app:v5"
@@ -135,12 +140,10 @@ subprocess.run(
 )
 
 if not run_command(
-    f"docker run -d --name {CANDIDATE_CONTAINER} "
-    f"-p {CANDIDATE_PORT}:5000 "
-    f'-v "${{PWD}}\\{NEW_REPORT}:/app/{NEW_REPORT}:ro" '
-    f"{NEW_IMAGE}"
+    f"docker run -d --name {CANDIDATE_CONTAINER} -p {CANDIDATE_PORT}:5000 {NEW_IMAGE}"
 ):
     print("[FAIL] Candidate failed to start.")
+    sys.exit(1)
     exit()
 
 time.sleep(3)
@@ -172,3 +175,6 @@ if run_command("py traffic_switcher.py v7"):
 else:
     print("[FAIL] Automatic traffic switch failed.")
     print("[ACTION] Existing stable deployment remains active.")
+
+
+

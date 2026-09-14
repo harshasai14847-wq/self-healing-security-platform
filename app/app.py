@@ -9,7 +9,7 @@ app = Flask(__name__)
 # Dashboard runs inside Docker, so use its own /app directory
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-HOST_CONTROLLER = "http://host.docker.internal:5051/scan"
+HOST_CONTROLLER = "http://127.0.0.1:5051/scan"
 
 RESULT_FILE = os.path.join(
     BASE_DIR,

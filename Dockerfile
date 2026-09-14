@@ -4,6 +4,21 @@ WORKDIR /app
 # Automatically remediate fixable pip vulnerabilities
 RUN python -m pip install --no-cache-dir --upgrade pip
 
+# Automatically remediate fixable pip vulnerabilities
+RUN python -m pip install --no-cache-dir --upgrade pip
+
+# Automatically remediate fixable pip vulnerabilities
+RUN python -m pip install --no-cache-dir --upgrade pip
+
+# Automatically remediate fixable pip vulnerabilities
+RUN python -m pip install --no-cache-dir --upgrade pip
+
+# Automatically remediate fixable pip vulnerabilities
+RUN python -m pip install --no-cache-dir --upgrade pip
+
+# Automatically remediate fixable pip vulnerabilities
+RUN python -m pip install --no-cache-dir --upgrade pip
+
 
 COPY app/requirements.txt .
 
